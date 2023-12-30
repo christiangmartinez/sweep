@@ -6,6 +6,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/mouse.h>
 
+// Define layers
 #define COLEMAKDH 0
 #define NAV 1
 #define SYM 2
@@ -76,7 +77,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ Home     │          │          │          │ Page Up  │   │  Insert  │   {      │    }     │   (      │  )       │
-            &kp HOME   &trans     &trans     &trans     &kp PG_UP       &kp INS   &kp LBRC   &kp RBRC   &kp LPR    &kp RPR
+            &kp HOME   &trans     &trans     &trans     &kp PG_UP       &kp INS   &kp LBRC   &kp RBRC   &kp LPAR    &kp RPAR
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ MBCK     │  RCLK    │  MCLK    │  LCLK    │  MFWD    │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │          │
             &mkp MB4   &mkp MB2   &mkp MB3   &mkp MB1   &mkp MB5       &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT   &trans
@@ -93,7 +94,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│   = +    |          |    *     │    &     │          │   │          │  vol up  | brght up |          |          | 
-            &kp EQUAL   &trans    &kp ASTRK   &kp RBRC   &trans        &trans   &kp C_VOL_UP &kp C_BRI_UP &trans     &trans
+            &kp EQUAL   &trans    &kp ASTRK   &kp AMPS   &trans        &trans   &kp C_VOL_UP &kp C_BRI_UP &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   ' "    │   ^      │    %     │    $     │          │   │          │    prev  │pause/play│   next   │          │
             &kp SQT   &kp CARET   &kp PRCNT   &kp DLLR   &trans        &trans    &kp C_PREV  &kp C_PP   &kp C_NEXT   &trans
