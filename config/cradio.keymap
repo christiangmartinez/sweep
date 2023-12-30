@@ -100,7 +100,7 @@
             &kp SQT   &kp CARET   &kp PRCNT   &kp DLLR   &trans        &trans    &kp C_PREV  &kp C_PP   &kp C_NEXT   &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│   \ |    │    #     │    @     │    !     │    `     │   │  mute    │ vol down │ brght dwn│          │          │
-            &kp BSLH     &HASH     &kp AT    &kp EXCL   &kp GRAVE    &kp C_MUTE &kp C_VOL_DN &kp C_BRI_DN  &trans   &trans
+            &kp BSLH   &kp HASH   &kp AT      &kp EXCL   &kp GRAVE    &kp C_MUTE &kp C_VOL_DN &kp C_BRI_DN  &trans   &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
