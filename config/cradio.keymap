@@ -61,7 +61,7 @@
         //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  ; :     │
             &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O      │
+        //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
             HRML(A,        R,         S,         T)     &kp G          &kp H      HRMR(N,        E,         I,        O)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?      │
@@ -74,7 +74,6 @@
 
         NAV {
             bindings = <
-        // vim navigation and mouse actions
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ Home     │          │          │          │ Page Up  │   │  Insert  │   {      │    }     │   (      │  )       │
             &kp HOME   &trans     &trans     &trans     &kp PG_UP       &kp INS   &kp LBRC   &kp RBRC   &kp LPR    &kp RPR
@@ -93,7 +92,6 @@
 
         SYM {
             bindings = <
-        // symbols and media controls
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│   = +    |          |    *     │    &     │          │   │          │  vol up  | brght up |          |          | 
             &kp EQUAL   &trans    &kp ASTRK   &kp RBRC   &trans        &trans   &kp C_VOL_UP &kp C_BRI_UP &trans     &trans
