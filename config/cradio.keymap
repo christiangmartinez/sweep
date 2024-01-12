@@ -12,6 +12,7 @@
 #define SYM 2
 #define NUM 3
 #define FUN 4
+#define BT 5
 
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LCTRL k2  &ht LALT k3  &ht LGUI k4
@@ -27,6 +28,14 @@
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
+        };
+    };
+    
+    contitional_layers {
+        compatible = "zmk,conditional-layers"; 
+        bluetooth_layer {
+            if-layers = <NAV SYM>;
+            then-layer = <BT>;
         };
     };
 
@@ -58,86 +67,55 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │  ; :     │
-            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp SEMI
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
-            HRML(A,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?      │
-            &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp FSLH
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                        &lt NUM TAB   &lt NAV ENTER  &lt SYM SPACE  &lt FUN BSPC
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            &kp Q   &kp W   &kp F   &kp P   &kp B       &kp J   &kp L   &kp U   &kp Y   &kp SEMI
+            HRML(A,   R,      S,      T)    &kp G       &kp M   HRMR(N,   E,      I,      O)
+            &kp Z   &kp X   &kp C   &kp D   &kp V       &kp K   &kp H   &kp COMMA   &kp DOT &kp FSLH
+                        &lt NUM TAB &lt NAV ENTER       &lt SYM SPACE &lt FUN BSPC
             >;
         };
 
         nav_layer {
             bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ Home     │          │          │          │ Page Up  │   │  Insert  │   {      │    }     │   (      │  )       │
             &kp HOME   &trans     &trans     &trans     &kp PG_UP       &kp INS   &kp LBRC   &kp RBRC   &kp LPAR    &kp RPAR
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ MBCK     │  RCLK    │  MCLK    │  LCLK    │  MFWD    │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │          │
             &mkp MB4   &mkp MB2   &mkp MB3   &mkp MB1   &mkp MB5       &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT   &trans
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ End      │          |          │          │ Page Down│   │          │    [     │    ]     │          │          │
             &kp END     &trans     &trans     &trans    &kp PG_DN       &trans     &kp LBKT   &kp RBKT   &trans     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &kp DEL
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
 
         sym_layer {
             bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│   = +    |          |    *     │    &     │          │   │          │  vol up  | brght up |          |          | 
             &kp EQUAL   &trans    &kp ASTRK   &kp AMPS   &trans        &trans   &kp C_VOL_UP &kp C_BRI_UP &trans     &trans
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   ' "    │   ^      │    %     │    $     │          │   │          │    prev  │pause/play│   next   │          │
             &kp SQT   &kp CARET   &kp PRCNT   &kp DLLR   &trans        &trans    &kp C_PREV  &kp C_PP   &kp C_NEXT   &trans
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│   \ |    │    #     │    @     │    !     │    `     │   │  mute    │ vol down │ brght dwn│          │          │
             &kp BSLH   &kp HASH   &kp AT      &kp EXCL   &kp GRAVE    &kp C_MUTE &kp C_VOL_DN &kp C_BRI_DN  &trans   &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
 
         num_layer {
             bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │          │          │          │          │   │          │    7     │    8     │    9     │          │
             &trans     &trans     &trans     &trans     &trans         &trans     &kp N7    &kp N8     &kp N9      &trans
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │    4     │    5     │    6     │          │
             &trans     &trans     &trans     &trans     &trans         &trans     &kp N4     &kp N5     &kp N6     &trans
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │    0     │    1     │    2     │    3     │          │
             &trans     &trans     &trans     &trans     &trans         &kp N0     &kp N1     &kp N2     &kp N3     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
 
         fun_layer {
             bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │    F9    │   F10    │   F11    │   F12    │   RESET  │
-           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &kp F9     &kp F10    &kp F11    &kp F12   &sys_reset 
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │    F5    │   F6     │   F7     │   F8     │BOOTLOADER│          
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &kp F5     &kp F6     &kp F7     &kp F8    &bootloader
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │PROFILE 2 │   │    F1    │   F2     │   F3     │   F4     │          │
-            &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &kp F1     &kp F2     &kp F3     &kp F4     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+                &trans  &trans  &trans  &trans  &trans      &trans  &kp F9  &kp F10 &kp F11 &kp F12    
+                &trans  &trans  &trans  &trans  &trans      &trans  &kp F5  &kp F6  &kp F7  &kp F8
+                &trans  &trans  &trans  &trans  &trans      &trans  &kp F1  &kp F2  &kp F3  &kp F4
+                                        &trans  &trans      &trans  &trans
+            >;
+        };
+
+        bluetooth_layer {
+            bindings = <
+                &sys_reset  &trans  &trans  &trans  &bt BT_SEL 0        &trans  &trans  &trans  &trans  &sys_reset 
+                &bootloader &trans  &trans  &trans  &bt BT_SEL 1        &trans  &trans  &trans  &trans  &bootloader
+                &trans  &trans  &trans  &bt BT_CLR  &bt BT_SEL 2        &trans  &trans  &trans  &trans  &trans
+                                        &trans  &trans                  &trans  &trans
             >;
         };
     };
